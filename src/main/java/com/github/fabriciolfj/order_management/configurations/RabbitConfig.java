@@ -32,7 +32,7 @@ public class RabbitConfig {
         return converter;
     }
 
-    @Bean
+    //TODO
     public SimpleRabbitListenerContainerFactory listenerContainerFactory(final ConnectionFactory connectionFactory) {
         final SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
