@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,8 @@ public class OrderJpa {
     private String code;
     @Column(name = "tracking", nullable = false, unique = true)
     private String tracking;
+    @Column(name = "total", nullable = false, scale = 4)
+    private BigDecimal total;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private List<ItemJpa> items = new ArrayList<>();
     @Column(name = "date_receive", nullable = false)

@@ -16,6 +16,7 @@ public class OrderJpaMapper {
                 .dateReceive(order.getDateReceive())
                 .tracking(order.getTracking())
                 .items(toItemJpa(order.getItems()))
+                .total(order.getTotal())
                 .build();
     }
 

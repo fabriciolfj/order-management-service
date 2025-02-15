@@ -1,7 +1,6 @@
 package com.github.fabriciolfj.order_management.entrypoint.listener.order;
 
 import com.github.fabriciolfj.order_management.annotations.NotEmptyList;
-import com.github.fabriciolfj.order_management.domain.entities.Item;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +21,5 @@ public class OrderDto {
     @NotBlank(message = "date invalid")
     private LocalDateTime dateReceive;
     @NotEmptyList
-    private List<Item> items;
+    private List<ItemDto> items;
 }

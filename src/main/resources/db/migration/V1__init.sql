@@ -2,6 +2,7 @@
 CREATE TABLE orders (
     id BIGSERIAL PRIMARY KEY,
     code VARCHAR(255) NOT NULL UNIQUE,
+    total NUMERIC(10,4) NOT NULL,
     date_receive TIMESTAMP NOT NULL
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP,

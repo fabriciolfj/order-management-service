@@ -12,20 +12,20 @@ public class OrderDtoMapper {
         return dtos
                 .stream()
                 .map(dto ->
-                        Order.builder()
+                         Order.builder()
                                 .dateReceive(dto.getDateReceive())
                                 .code(dto.getCode())
                                 .tracking(dto.getTracking())
-                                .items(dto.getItems())
-                                .build())
+                                .items(toEntityItems(dto.getItems()))
+                                .build().calcTotal())
                 .toList();
     }
 
-    private static List<Item> toEntityItems(final List<Item> items)  {
+    private static List<Item> toEntityItems(final List<ItemDto> items)  {
         return items.stream()
                 .map(item -> Item.builder()
                         .value(item.getValue())
-                        .total(item.getTotal().multiply(BigDecimal.valueOf(item.getQuantity())))
+                        .total(item.getValue().multiply(BigDecimal.valueOf(item.getQuantity())))
                         .code(item.getCode())
                         .quantity(item.getQuantity())
                         .build())
