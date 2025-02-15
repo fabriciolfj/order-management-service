@@ -25,15 +25,6 @@ spring:
     port: 5672
     username: guest
     password: guest
-    listener:
-      simple:
-        retry:
-          enabled: true
-          initial-interval: 1000
-          max-attempts: 3
-          multiplier: 2
-        batch-size: 50
-        default-requeue-rejected: false
 
 queue:
   order:
