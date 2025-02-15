@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class SaveOrderGatewayImpl implements SaveOrderGateway {
+public class SaveOrderAdapter implements SaveOrderGateway {
 
     private final OrderRepository orderRepository;
 

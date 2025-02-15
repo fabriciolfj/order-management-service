@@ -3,7 +3,8 @@ CREATE TABLE orders (
     id BIGSERIAL PRIMARY KEY,
     code VARCHAR(255) NOT NULL UNIQUE,
     total NUMERIC(10,4) NOT NULL,
-    date_receive TIMESTAMP NOT NULL
+    tracking VARCHAR(255) NOT NULL UNIQUE,
+    date_receive TIMESTAMP NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP,
     version BIGINT NOT NULL DEFAULT 0
@@ -13,7 +14,6 @@ CREATE TABLE orders (
 CREATE TABLE item (
     id BIGSERIAL PRIMARY KEY,
     code VARCHAR(255) NOT NULL UNIQUE,
-    tracking VARCHAR(255) NOT NULL UNIQUE,
     quantity INTEGER NOT NULL,
     value NUMERIC(10,4) NOT NULL,
     total NUMERIC(10,4) NOT NULL,

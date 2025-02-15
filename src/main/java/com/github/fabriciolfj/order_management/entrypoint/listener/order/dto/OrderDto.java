@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.order_management.entrypoint.listener.order;
+package com.github.fabriciolfj.order_management.entrypoint.listener.order.dto;
 
 import com.github.fabriciolfj.order_management.annotations.NotEmptyList;
 import jakarta.validation.constraints.NotBlank;

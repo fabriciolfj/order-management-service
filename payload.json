@@ -1,0 +1,31 @@
+[
+  {
+    "code": "ORD12345",
+    "tracking": "TRACK123456789",
+    "dateReceive": "2025-02-15T10:30:00",
+    "items": [
+      {
+        "code": "P123",
+        "quantity": 2,
+        "price": 50.0
+      },
+      {
+        "code": "P12321",
+        "quantity": 2,
+        "price": 50.0
+      }
+    ]
+  },
+  {
+    "code": "ORD67890",
+    "tracking": "TRACK987654321",
+    "dateReceive": "2025-02-16T12:00:00",
+    "items": [
+      {
+        "code": "P789",
+        "quantity": 1,
+        "price": 30.0
+      }
+    ]
+  }
+]

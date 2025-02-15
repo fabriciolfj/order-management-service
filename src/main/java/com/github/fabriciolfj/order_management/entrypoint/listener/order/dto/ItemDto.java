@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.order_management.entrypoint.listener.order;
+package com.github.fabriciolfj.order_management.entrypoint.listener.order.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
@@ -18,5 +18,5 @@ public class ItemDto {
     @Positive(message = "quantity invalid")
     private int quantity;
     @Positive(message = "value invalid")
-    private BigDecimal value;
+    private BigDecimal price;
 }

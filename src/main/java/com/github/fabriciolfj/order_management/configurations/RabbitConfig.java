@@ -3,9 +3,11 @@ package com.github.fabriciolfj.order_management.configurations;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.ConditionalRejectingErrorHandler;
+import org.springframework.amqp.support.converter.DefaultJackson2JavaTypeMapper;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,9 @@ public class RabbitConfig {
                 .registerModule(new JavaTimeModule())
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        return new Jackson2JsonMessageConverter(mapper);
+        var converter = new Jackson2JsonMessageConverter(mapper);
+
+        return converter;
     }
 
     @Bean
@@ -36,6 +40,7 @@ public class RabbitConfig {
         factory.setBatchSize(50);
         factory.setPrefetchCount(50);
         factory.setConsumerBatchEnabled(true);
+        factory.setMessageConverter(jsonMessageConverter());
 
         factory.setDefaultRequeueRejected(false);
 

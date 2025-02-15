@@ -3,10 +3,11 @@ package com.github.fabriciolfj.order_management.adapters.data.jpa;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 
+@Data
 @Entity
 @Table(name = "item")
 @AllArgsConstructor
@@ -26,6 +27,4 @@ public class ItemJpa {
     private BigDecimal value;
     @Column(name = "total", scale = 4, nullable = false)
     private BigDecimal total;
-    @OneToMany(mappedBy = "items")
-    private OrderJpa order;
 }

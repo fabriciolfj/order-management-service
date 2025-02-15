@@ -1,15 +1,12 @@
 package com.github.fabriciolfj.order_management.domain.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Getter
+@ToString
 @Builder
 public class Item {
     private String code;

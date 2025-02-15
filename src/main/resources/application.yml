@@ -1,6 +1,17 @@
 spring:
   application:
     name: order-manager
+  datasource:
+    password: postgres
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/orderdb
+    hikari:
+      maximum-pool-size: 20          # máximo de conexões
+      minimum-idle: 5                # mínimo de conexões idle
+      idle-timeout: 300000          # tempo máximo que uma conexão pode ficar idle (5 min)
+      connection-timeout: 20000     # tempo máximo de espera por uma conexão (20 seg)
+      max-lifetime: 1200000        # tempo máximo de vida de uma conexão (20 min)
   jpa:
     properties:
       hibernate:
