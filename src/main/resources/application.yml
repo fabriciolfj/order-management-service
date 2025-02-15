@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: order-manager
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+        batch_versioned_data: true
+  rabbitmq:
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 1000
+          max-attempts: 3
+          multiplier: 2
+        batch-size: 50
+        default-requeue-rejected: false
+
+queue:
+  order:
+    name: order-queue
+    dlq: order-queue.dlq
+    exchange: order-exchange
+    routing-key: order.key
