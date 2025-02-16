@@ -19,7 +19,7 @@ public class ItemJpa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "code", nullable = false, unique = true)
+    @Column(name = "code", nullable = false)
     private String code;
     @Column(name = "quantity", nullable = false)
     private int quantity;
