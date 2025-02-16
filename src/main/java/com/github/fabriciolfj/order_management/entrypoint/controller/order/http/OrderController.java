@@ -26,7 +26,7 @@ public class OrderController {
     @GetMapping
     public DataOrderResponse getOrdersPageable(@RequestParam(value = "dateInit", required = false)
                                                @DateTimeValid final String dateInt,
-                                               @RequestParam(value = "dateEndee", required = false)
+                                               @RequestParam(value = "dateEnd", required = false)
                                                @DateTimeValid final String dateEnd,
                                                @RequestParam(value = "page", defaultValue = "0") int page,
                                                @RequestParam(value = "total_elements", defaultValue = "100") int totalElements) {
