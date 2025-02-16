@@ -12,7 +12,11 @@ spring:
       idle-timeout: 300000          # tempo máximo que uma conexão pode ficar idle (5 min)
       connection-timeout: 20000     # tempo máximo de espera por uma conexão (20 seg)
       max-lifetime: 1200000        # tempo máximo de vida de uma conexão (20 min)
+      validation-timeout: 5000
   jpa:
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: false
     properties:
       hibernate:
         jdbc:

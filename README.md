@@ -24,3 +24,13 @@ http://localhost:8080/actuator/health
 ## Arquitetura de código
 - clean architecture
 - code clean
+
+## Carga
+- após a aplicação up, pode-se executar o script carga.sh
+
+## Consulta
+- exemplo abaixo de uma consulta paginada dos pedidos
+```
+curl --location --request GET 'localhost:8080/api/v1/orders?dateInit=2025-02-08%2008%3A00%3A00&dataEnd=2025-02-15%2023%3A00%3A00' \
+--header 'Content-Type: application/json' 
+```
