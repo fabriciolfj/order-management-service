@@ -13,7 +13,7 @@ CREATE TABLE orders (
 -- V2__create_items_table.sql
 CREATE TABLE item (
     id BIGSERIAL PRIMARY KEY,
-    code VARCHAR(255) NOT NULL UNIQUE,
+    code VARCHAR(255) NOT NULL,
     quantity INTEGER NOT NULL,
     value NUMERIC(10,4) NOT NULL,
     total NUMERIC(10,4) NOT NULL,

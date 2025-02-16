@@ -18,7 +18,7 @@ public class OrderListener {
 
     private final CreateOrderUseCase createOrderUseCase;
 
-    @RabbitListener(queues = "${queue.order.name}")
+    @RabbitListener(queues = "${queue.order.name}", containerFactory = "listenerContainerFactory")
     public void receive(final List<OrderDto> dtos) {
         log.info("receive orders {}", dtos.size());
 
