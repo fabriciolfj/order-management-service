@@ -2,6 +2,7 @@ package com.github.fabriciolfj.order_management.adapters.order;
 
 import com.github.fabriciolfj.order_management.adapters.data.mapper.OrderJpaMapper;
 import com.github.fabriciolfj.order_management.adapters.data.repositories.OrderRepository;
+import com.github.fabriciolfj.order_management.adapters.data.repositories.OrderRepositoryCustom;
 import com.github.fabriciolfj.order_management.domain.entities.Order;
 import com.github.fabriciolfj.order_management.domain.usecase.createorder.SaveOrderGateway;
 import jakarta.persistence.OptimisticLockException;
@@ -21,7 +22,7 @@ import java.util.List;
 @Component
 public class SaveOrderAdapter implements SaveOrderGateway {
 
-    private final OrderRepository orderRepository;
+    private final OrderRepositoryCustom orderRepository;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
@@ -31,7 +32,7 @@ public class SaveOrderAdapter implements SaveOrderGateway {
             var orderJpa = orders
                     .stream().map(OrderJpaMapper::toJpa).toList();
 
-            orderRepository.saveAll(orderJpa);
+            orderRepository.saveAllNative(orderJpa);
         } catch (ConstraintViolationException | DataIntegrityViolationException | OptimisticLockException e) {
             log.error("fail save order duplicate or outdated, details {}", e.getMessage());
         }

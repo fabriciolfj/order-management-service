@@ -36,3 +36,6 @@ queue:
     dlq: order-queue.dlq
     exchange: order-exchange
     routing-key: order.key
+
+repository:
+  native: true
